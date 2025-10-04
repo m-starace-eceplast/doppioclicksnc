@@ -9,6 +9,8 @@ onMounted(() => {
   })
 })
 
+const cursorHand = usePage().props.images.cursorHand;
+
 </script>
 
 <template>
@@ -134,6 +136,29 @@ onMounted(() => {
 </template>
 
 <style scoped>
+/* Fix cursore globale */
+* {
+  cursor: auto !important;
+}
+
+/* cursor hand */
+body, html {
+  cursor: auto !important;
+}
+
+/* Fix per puntatori specifici */
+.v-btn, button, [role="button"] {
+  cursor: pointer !important;
+}
+
+a, [role="link"] {
+  cursor: pointer !important;
+}
+
+input, textarea, select {
+  cursor: text !important;
+}
+
 /* Contenitore principale */
 .fill-height {
   height: 100vh;
@@ -201,7 +226,7 @@ onMounted(() => {
 }
 
 /* Centro assoluto */
-.central-square {
+.central-square:not(:hover) {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -212,6 +237,22 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.central-square:hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -51%);
+  width: 140px;
+  height: 140px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 /* Testo opzionale */
