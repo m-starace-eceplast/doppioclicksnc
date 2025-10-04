@@ -1,125 +1,226 @@
 <script setup>
 import { ref } from 'vue'
+import { Head } from '@inertiajs/vue3';
+import Footer from '../../Components/Footer.vue';
 
-// Dati reattivi
 </script>
 
 <template>
     <v-app>
-        <v-container fluid class="d-flex align-center justify-center fill-height pa-0">
+
+        <Head title="Welcome" />
+        <v-container fluid class="d-flex align-center justify-center fill-height pa-0 position-relative">
             <div class="outer-square">
+                <!-- Riga superiore -->
                 <v-row no-gutters class="inner-row">
                     <!-- Prima sezione -->
-                    <v-col cols="12" sm="6" md="6" class="inner-square bg-grey-lighten-2">
+                    <v-col cols="12" sm="6" md="6" class="inner-square">
                         <v-row class="fill-height ma-0" align="center" justify="center">
-                            <v-col class="text-center pa-4">
-                                <h1 class="text-h3 text-md-h2 font-weight-bold mb-4">
-                                    Welcome to Our App
+                            <v-col class="d-flex flex-column align-center justify-center text-center pa-10">
+                                <h1 class="text-h3 text-md-h2 font-weight-bold mb-3 text-uppercase text-primary">
+                                    {{ String('Assistenza Stampanti HP').toUpperCase() }}
                                 </h1>
-                                <p class="text-subtitle-1 text-md-h6 mb-6">
-                                    Your journey starts here.
+
+                                <p class="text-body-1 text-grey-darken-2 mb-4" style="max-width: 800px;">
+                                    Offriamo supporto tecnico specializzato per l’integrazione e la
+                                    gestione delle stampanti nei tuoi ambienti HP. Diagnosi rapide,
+                                    configurazioni personalizzate e ottimizzazione delle prestazioni
+                                    per garantire la massima produttività.
                                 </p>
-                                <v-btn color="primary" size="large" :block="$vuetify.display.xs">
-                                    Get Started
-                                </v-btn>
+
+                                <p class="text-body-2 text-grey-darken-1" style="max-width: 700px;">
+                                    Dalla risoluzione dei problemi di rete alla manutenzione
+                                    software, curiamo ogni dettaglio con precisione e affidabilità.
+                                    Un servizio su misura, pensato per realtà professionali che
+                                    vogliono eliminare tempi morti e inefficienze.
+                                </p>
                             </v-col>
                         </v-row>
                     </v-col>
 
                     <!-- Seconda sezione -->
-                    <v-col cols="12" sm="6" md="6" class="inner-square bg-grey-lighten-3">
+                    <v-col cols="12" sm="6" md="6" class="inner-square">
                         <v-row class="fill-height ma-0" align="center" justify="center">
-                            <v-col class="text-center pa-4">
-                                <h2 class="text-h4 text-md-h3 font-weight-medium mb-4">
-                                    Join Us Today
-                                </h2>
-                                <p class="text-body-1 text-md-subtitle-1 mb-6">
-                                    Create an account to get the most out of our services.
+                            <v-col class="d-flex flex-column align-center justify-center text-center pa-12">
+                                <h1 class="text-h3 text-md-h2 font-weight-bold mb-3 text-uppercase text-primary">
+                                    {{ String('Assistenza Stampanti SHARP').toUpperCase() }}
+                                </h1>
+
+                                <p class="text-body-1 text-grey-darken-2 mb-4"
+                                    style="max-width: 780px; letter-spacing: 0.3px;">
+                                    Supporto tecnico avanzato per stampanti integrate in ambienti
+                                    SHARP. Interventi rapidi, configurazioni ottimizzate e
+                                    monitoraggio costante delle prestazioni.
                                 </p>
-                                <v-btn color="secondary" size="large" :block="$vuetify.display.xs">
-                                    Sign Up
-                                </v-btn>
+
+                                <p class="text-body-2 text-grey-darken-1" style="max-width: 680px; line-height: 1.6;">
+                                    Dalla risoluzione di errori di spooler alla gestione dei driver
+                                    su sistemi web server, offriamo un servizio professionale,
+                                    scalabile e progettato per garantire continuità operativa.
+                                </p>
                             </v-col>
                         </v-row>
                     </v-col>
                 </v-row>
 
+                <!-- Riga inferiore -->
                 <v-row no-gutters class="inner-row">
                     <!-- Terza sezione -->
-                    <v-col cols="12" sm="6" md="6" class="inner-square bg-grey-lighten-4">
+                    <v-col cols="12" sm="6" md="6" class="inner-square">
                         <v-row class="fill-height ma-0" align="center" justify="center">
-                            <v-col class="text-center pa-4">
-                                <h2 class="text-h4 text-md-h3 font-weight-medium mb-4">
-                                    Discover Features
+                            <v-col class="d-flex flex-column align-center justify-center text-center pa-10">
+                                <h2 class="text-h4 text-md-h3 font-weight-bold mb-3 text-primary text-uppercase">
+                                    {{ String('Arredi d’Ufficio & Componentistica PC').toUpperCase() }}
                                 </h2>
-                                <p class="text-body-1 text-md-subtitle-1 mb-6">
-                                    Explore what we have to offer.
+
+                                <p class="text-body-1 text-grey-darken-2 mb-4" style="max-width: 800px;">
+                                    Scopri soluzioni integrate per il tuo ambiente di lavoro: dalle
+                                    postazioni ergonomiche ai sistemi hardware su misura.
+                                    Progettiamo spazi e tecnologie che migliorano produttività,
+                                    comfort e stile.
                                 </p>
-                                <v-btn color="info" size="large" :block="$vuetify.display.xs">
-                                    Learn More
-                                </v-btn>
+
+                                <p class="text-body-2 text-grey-darken-1" style="max-width: 700px;">
+                                    Ogni elemento — scrivanie, sedute, periferiche, componenti e reti
+                                    — viene selezionato con cura per offrire il massimo equilibrio
+                                    tra design, efficienza e affidabilità. Un approccio tecnico e
+                                    funzionale pensato per le aziende moderne.
+                                </p>
                             </v-col>
                         </v-row>
                     </v-col>
 
                     <!-- Quarta sezione -->
-                    <v-col cols="12" sm="6" md="6" class="inner-square bg-grey-lighten-5">
+                    <v-col cols="12" sm="6" md="6" class="inner-square">
                         <v-row class="fill-height ma-0" align="center" justify="center">
-                            <v-col class="text-center pa-4">
-                                <h2 class="text-h4 text-md-h3 font-weight-medium mb-4">
-                                    Contact Support
+                            <v-col class="d-flex flex-column align-center justify-center text-center pa-10">
+                                <h2 class="text-h4 text-md-h3 font-weight-bold mb-3 text-primary text-uppercase">
+                                    {{ String('Videosorveglianza & Sicurezza Aziendale').toUpperCase() }}
                                 </h2>
-                                <p class="text-body-1 text-md-subtitle-1 mb-6">
-                                    We're here to help you 24/7.
+
+                                <p class="text-body-1 text-grey-darken-2 mb-4" style="max-width: 800px;">
+                                    Soluzioni avanzate di videosorveglianza per proteggere persone,
+                                    dati e ambienti aziendali. Sistemi integrati con gestione da
+                                    remoto, analisi intelligente e connessione sicura ai tuoi
+                                    server.
                                 </p>
-                                <v-btn color="success" size="large" :block="$vuetify.display.xs">
-                                    Contact Us
-                                </v-btn>
+
+                                <p class="text-body-2 text-grey-darken-1" style="max-width: 700px;">
+                                    Dalla progettazione dell’impianto alla configurazione delle
+                                    telecamere IP e dei registratori NVR, garantiamo affidabilità,
+                                    controllo continuo e conformità alle normative sulla privacy.
+                                </p>
                             </v-col>
                         </v-row>
                     </v-col>
                 </v-row>
             </div>
+
+            <!-- Quadrato centrale -->
+            <div class="central-square"></div>
+
+            <Footer />
         </v-container>
     </v-app>
 </template>
 
 <style scoped>
+/* Contenitore principale */
 .fill-height {
-    height: 100vh;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
+/* Struttura griglia */
 .outer-square {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .inner-row {
-    flex: 1;
+  flex: 1;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .inner-square {
-    border: 1px solid #ccc;
-    min-height: 50vh;
+  flex: 1;
+  border: 1px solid #e5e5e5;
+  background-color: #fcfcfc;
+  padding: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .fill-height {
-        height: auto;
-        min-height: 100vh;
-    }
-
-    .inner-square {
-        min-height: 40vh;
-    }
+.inner-square:hover {
+  background-color: #f7f9fc;
+  transform: scale(1.002);
 }
 
-@media (min-width: 960px) {
-    .inner-square {
-        min-height: 50vh;
-    }
+/* Centro assoluto */
+.central-square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -51%);
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(145deg, #ffffff, #f1f4f8);
+  border: 3px solid #1976d2;
+  box-shadow: 0 10px 25px rgba(25, 118, 210, 0.25),
+              0 0 0 6px rgba(25, 118, 210, 0.05);
+  border-radius: 16px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Testo opzionale */
+.central-square span {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Fix globali Vuetify */
+.v-container,
+.v-row,
+.v-col {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .fill-height {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .inner-row {
+    flex-direction: column;
+  }
+
+  .inner-square {
+    min-height: 45vh;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .central-square {
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+  }
+}
+
 </style>
