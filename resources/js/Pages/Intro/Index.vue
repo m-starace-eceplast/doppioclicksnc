@@ -1,7 +1,13 @@
 <script setup>
-import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3';
+import { ref, onMounted } from 'vue'
+import { Head, usePage } from '@inertiajs/vue3';
 import Footer from '../../Components/Footer.vue';
+
+onMounted(() => {
+  document.querySelectorAll('.inner-square').forEach((el) => {
+    setTimeout(() => el.classList.add('loaded'), 1200) // piccolo delay per effetto più naturale
+  })
+})
 
 </script>
 
@@ -117,8 +123,11 @@ import Footer from '../../Components/Footer.vue';
             </div>
 
             <!-- Quadrato centrale -->
-            <div class="central-square"></div>
-
+            <div class="central-square">
+                <span>
+                    <img :src="usePage().props.images.logo" alt="Doppio Click Logo" style="max-width: 100%; max-height: 100%;" />
+                </span>
+            </div>
             <Footer />
         </v-container>
     </v-app>
@@ -151,15 +160,44 @@ import Footer from '../../Components/Footer.vue';
 
 .inner-square {
   flex: 1;
-  border: 1px solid #e5e5e5;
+  position: relative;
+  overflow: hidden;
   background-color: #fcfcfc;
-  padding: 0;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.inner-square:hover {
-  background-color: #f7f9fc;
-  transform: scale(1.002);
+/* Bordi animati */
+.inner-square::before,
+.inner-square::after {
+  content: "";
+  position: absolute;
+  background-color: #a5a5a541; /* colore bordo */
+  transition: all 0.8s ease;
+}
+
+/* Riga orizzontale */
+.inner-square::before {
+  height: 2px;
+  width: 0%;
+  top: 0;
+  left: 0;
+}
+
+/* Riga verticale */
+.inner-square::after {
+  width: 2px;
+  height: 0%;
+  bottom: 0;
+  right: 0;
+}
+
+/* Quando la pagina è caricata */
+.inner-square.loaded::before {
+  width: 100%;
+}
+
+.inner-square.loaded::after {
+  height: 100%;
 }
 
 /* Centro assoluto */
@@ -170,11 +208,6 @@ import Footer from '../../Components/Footer.vue';
   transform: translate(-50%, -51%);
   width: 150px;
   height: 150px;
-  background: linear-gradient(145deg, #ffffff, #f1f4f8);
-  border: 3px solid #1976d2;
-  box-shadow: 0 10px 25px rgba(25, 118, 210, 0.25),
-              0 0 0 6px rgba(25, 118, 210, 0.05);
-  border-radius: 16px;
   z-index: 30;
   display: flex;
   align-items: center;
