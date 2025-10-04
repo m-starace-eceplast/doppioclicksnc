@@ -40,8 +40,9 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'images' => [
                 'logo' => Storage::url('images/global/logo_dcsnc.png'),
-                'hp' => asset('images/introPage/hp.webp'),
-                'sharp' => asset('images/introPage/sharp.jpg')
+                'hp' => Storage::url('images/introPage/hp.webp'),
+                'sharp' => Storage::url('images/introPage/sharp.jpg'),
+                'cursorHand' => Storage::url('images/cursor/cursor-hand.png'),
             ],
             //
         ];
