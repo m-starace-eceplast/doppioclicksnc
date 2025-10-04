@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -37,6 +38,11 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
+            'images' => [
+                'logo' => Storage::url('images/global/logo_dcsnc.png'),
+                'hp' => asset('images/introPage/hp.webp'),
+                'sharp' => asset('images/introPage/sharp.jpg')
+            ],
             //
         ];
     }
