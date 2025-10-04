@@ -1,3 +1,54 @@
-/* @import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities'; */
+/* Stili personalizzati per la pagina intro */
+.intro-section {
+  min-height: 100vh;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.features-section {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.about-section {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.contact-section {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Fix per il cursore mancante */
+* {
+  cursor: auto !important;
+}
+
+input, textarea, select {
+  cursor: text !important;
+}
+
+button, .v-btn, [role="button"] {
+  cursor: pointer !important;
+}
+
+a, .v-list-item, [role="link"] {
+  cursor: pointer !important;
+}
+
+.v-text-field input {
+  cursor: text !important;
+}
+
+.v-textarea textarea {
+  cursor: text !important;
+}
+
+/* Fix specifico per Vuetify */
+.v-application {
+  cursor: auto !important;
+}
+
+.v-application * {
+  cursor: inherit !important;
+}
