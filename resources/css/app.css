@@ -19,36 +19,42 @@
   background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
 }
 
-/* Fix per il cursore mancante */
-* {
+/* Fix per il cursore mancante - SUPER IMPORTANTE */
+html, body, #app, .v-application {
   cursor: auto !important;
 }
 
-input, textarea, select {
-  cursor: text !important;
-}
-
-button, .v-btn, [role="button"] {
-  cursor: pointer !important;
-}
-
-a, .v-list-item, [role="link"] {
-  cursor: pointer !important;
-}
-
-.v-text-field input {
-  cursor: text !important;
-}
-
-.v-textarea textarea {
-  cursor: text !important;
-}
-
-/* Fix specifico per Vuetify */
-.v-application {
+*, *::before, *::after {
   cursor: auto !important;
 }
 
-.v-application * {
-  cursor: inherit !important;
+/* Cursori specifici per elementi interattivi */
+button, .v-btn, [role="button"], .v-btn__content {
+  cursor: pointer !important;
+}
+
+a, [role="link"], .v-list-item {
+  cursor: pointer !important;
+}
+
+input, textarea, select, .v-text-field input, .v-textarea textarea {
+  cursor: text !important;
+}
+
+/* Override forzato per Vuetify */
+.v-application .v-btn {
+  cursor: pointer !important;
+}
+
+.v-application input {
+  cursor: text !important;
+}
+
+.v-application textarea {
+  cursor: text !important;
+}
+
+/* Reset completo cursore */
+.v-application, .v-application * {
+  cursor: revert !important;
 }
