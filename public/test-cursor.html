@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Cursor</title>
+    <style>
+        body {
+            cursor: url('http://localhost:8000/storage/images/cursor/cursor-hand-16.png'), auto !important;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-area {
+            width: 300px;
+            height: 200px;
+            background: lightblue;
+            border: 2px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: url('http://localhost:8000/storage/images/cursor/cursor-hand-16.png'), pointer !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Cursore</h1>
+    <p>Muovi il mouse qui sopra - dovresti vedere il cursore normale</p>
+    <div class="test-area">
+        Muovi il mouse qui - dovrebbe diventare pointer
+    </div>
+    
+    <script>
+        document.body.style.cursor = 'auto';
+        console.log('Cursor test loaded');
+    </script>
+</body>
+</html>
