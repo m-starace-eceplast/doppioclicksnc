@@ -7,6 +7,28 @@ onMounted(() => {
   document.querySelectorAll('.inner-square').forEach((el) => {
     setTimeout(() => el.classList.add('loaded'), 1200) // piccolo delay per effetto più naturale
   })
+  
+  // Fix cursore forzato con JavaScript
+  const forceCursor = () => {
+    document.body.style.cursor = 'auto';
+    document.documentElement.style.cursor = 'auto';
+    
+    // Rimuovi tutti gli stili che nascondono il cursore
+    const elements = document.querySelectorAll('*');
+    elements.forEach(el => {
+      const styles = window.getComputedStyle(el);
+      if (styles.cursor === 'none') {
+        el.style.cursor = 'auto !important';
+      }
+    });
+  };
+  
+  // Esegui immediatamente e poi ogni secondo
+  forceCursor();
+  setInterval(forceCursor, 1000);
+  
+  // Aggiungi event listener per forzare il cursore
+  document.addEventListener('mousemove', forceCursor);
 })
 
 const cursorHand = usePage().props.images.cursorHand;
@@ -136,13 +158,50 @@ const cursorHand = usePage().props.images.cursorHand;
 </template>
 
 <style scoped>
-/* Fix cursore globale */
-* {
+/* Fix cursore globale - VERSIONE SUPER AGGRESSIVA */
+:deep(*) {
   cursor: auto !important;
 }
 
-/* cursor hand */
-body, html {
+:deep(.v-application) {
+  cursor: auto !important;
+}
+
+:deep(.v-btn) {
+  cursor: url('http://localhost:8000/storage/images/cursor/cursor-hand-32.png'), pointer !important;
+}
+
+:deep(button) {
+  cursor: url('http://localhost:8000/storage/images/cursor/cursor-hand-32.png'), pointer !important;
+}
+
+:deep(a) {
+  cursor: url('http://localhost:8000/storage/images/cursor/cursor-hand-32.png'), pointer !important;
+}
+
+:deep(input) {
+  cursor: text !important;
+}
+
+:deep(textarea) {
+  cursor: text !important;
+}
+
+/* Forza il cursore su tutto il body */
+body {
+  cursor: url('http://localhost:8000/storage/images/cursor/cursor-hand-32.png'), auto !important;
+}
+
+html {
+  cursor: url('http://localhost:8000/storage/images/cursor/cursor-hand-32.png'), auto !important;
+}
+
+/* Override qualsiasi cursore nascosto */
+:deep([style*="cursor: none"]) {
+  cursor: auto !important;
+}
+
+:deep([style*="cursor:none"]) {
   cursor: auto !important;
 }
 
